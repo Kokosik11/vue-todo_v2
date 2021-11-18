@@ -36,6 +36,7 @@
 
 <script>
     import {mapState, mapGetters, mapActions, mapMutations} from 'vuex';
+    import shortid from 'shortid';
 
     export default {
         data() {
@@ -62,7 +63,7 @@
                 e.preventDefault();
                 console.log("clicked")
                 let action = {
-                    id: Date.now(),
+                    id: shortid.generate(),
                     title: this.actionTitle,
                     isCompleted: this.isCompleted
                 }
@@ -77,7 +78,7 @@
                 e.preventDefault();
                 console.log("clicked")
                 let project = {
-                    id: Date.now(),
+                    id: shortid.generate(),
                     title: this.projectTitle,
                     description: this.projectDescription,
                     actions: this.actions
@@ -88,11 +89,12 @@
 
                 this.addProject(project);
                 this.setActions([]);
-                this.$emit("setShow", false);
+                this.$emit("closeDialog");
             }, 
 
             onCancelClick(e) {
                 e.preventDefault();
+                this.$emit("closeDialog");
             }
         },
         computed: { 

@@ -6,14 +6,17 @@
         <div>Create project</div>
       </button>
 
-      <div class="project" v-if="projects.length > 0" v-for="project in projects">
-        {{project.title}}
+      <div v-if="projects.length > 0" v-for="project in projects">
+        <div @click="$router.push('/project/'+project.id)" class="project">
+          {{project.title}}
+
+        </div>
       </div>
     
     </div>
     
     <my-dialog v-model:show="dialogVisible">
-      <create-project-popup @setClose="setShow" />
+      <create-project-popup @closeDialog="closeDialog" />
     </my-dialog>
   </div>
 </template>
@@ -38,8 +41,8 @@ export default {
     showDialog() {
       this.dialogVisible = true;
     },
-    setShow(value) {
-      this.dialogVisible = value; 
+    closeDialog() {
+      this.dialogVisible = false; 
     }
   },
   computed: {

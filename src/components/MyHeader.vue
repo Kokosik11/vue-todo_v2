@@ -1,10 +1,10 @@
 <template>
     <header class="header">
-        <div class="logo">
+        <div @click="$router.push('/')" class="logo">
             <div class="logo-figure"></div>
             <h1 class="logo-heading">{{ title }}</h1>
         </div>
-        <a class="link" href="https://github.com/Kokosik11/vue-todo" target="_blank">Github</a>
+        <a class="link" href="https://github.com/Kokosik11/vue-todo_v2" target="_blank">Github</a>
     </header>
 </template>
 
@@ -39,6 +39,7 @@
         align-items: center;
         justify-content: space-between;
         color: #34495E;
+        cursor: pointer;
     }
 
     .logo h1 {

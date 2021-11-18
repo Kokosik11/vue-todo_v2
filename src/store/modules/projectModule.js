@@ -12,7 +12,12 @@ export const projectModule = {
         setProject(state, project) {
             state.projects.push(project);
         }
+    },
 
+    getters: {
+        getProjectById: state => id => {
+            return state.projects.find(project => project.id === id);
+        }
     },
 
     actions: {
