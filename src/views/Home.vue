@@ -49,7 +49,8 @@ export default {
     ...mapState({
       projects: state => state.project.projects,
     })
-  }
+  },
+ 
 }
 </script>
 
@@ -62,6 +63,8 @@ export default {
     height: 250px;
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    margin-right: 40px;
+    margin-bottom: 40px;
     transition: .3s;
   }
 
@@ -95,10 +98,15 @@ export default {
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     transition: .3s;
-    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #41B783;
+    text-align: center;
     padding: 20px;
   }
 

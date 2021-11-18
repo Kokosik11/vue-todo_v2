@@ -11,7 +11,7 @@
                 <div class="action-content">
                     <div v-if="actions.length > 0" class="action-item" v-for="action in actions" :key="action.id">
                         <div>{{action.title}}</div>
-                        <button @click="deleteAction(action.id)">X</button>
+                        <button @submit.prevent @click="deleteAction(action.id)">X</button>
                     </div>
                     <div class="action-item create">
                         <input v-model="actionTitle" type="text" placeholder="Action title...">

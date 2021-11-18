@@ -9,8 +9,30 @@
 
 <script>
 import MyHeader from './components/MyHeader.vue';
+import {mapState, mapGetters, mapActions, mapMutations} from 'vuex';
   export default {
-    components: { MyHeader }
+    components: { MyHeader },
+    computed: {
+      ...mapState({
+        projects: state => state.project.projects,
+      })
+    },
+    methods: {
+      ...mapActions({
+        initProjects: 'project/initProjects',
+      }),
+    },
+    watch: {
+      projects: {
+        handler: function(val) {
+          localStorage.projects = JSON.stringify(val);
+        },
+        deep: true
+      } 
+    },
+    created() {
+      this.initProjects(JSON.parse(localStorage.projects));
+    }
   }
 
 </script>
