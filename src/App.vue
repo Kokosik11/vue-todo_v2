@@ -31,7 +31,8 @@ import {mapState, mapGetters, mapActions, mapMutations} from 'vuex';
       } 
     },
     created() {
-      this.initProjects(JSON.parse(localStorage.projects));
+      let data = localStorage.projects && JSON.parse(localStorage.projects) || [];
+      this.initProjects(data);
     }
   }
 
